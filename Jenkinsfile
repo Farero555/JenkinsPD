@@ -16,6 +16,7 @@ pipeline {
 
                 echo 'Installing Python dependencies from requirements.txt...'
                 bat 'pip3 install -r python-greetings/requirements.txt'
+                bat 'if exist python-greetings rmdir /s /q python-greetings'
             }
         }
         stage('deploy-to-dev') {
