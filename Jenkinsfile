@@ -14,9 +14,6 @@ pipeline {
                 bat 'git clone https://github.com/mtararujs/python-greetings.git'
                 echo 'Repository cloned successfully.'
 
-                echo 'Checking the contents of the cloned repository...'
-                bat 'ls -l python-greetings'
-
                 echo 'Installing Python dependencies from requirements.txt...'
                 bat 'pip3 install -r python-greetings/requirements.txt'
             }
