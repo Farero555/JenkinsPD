@@ -14,6 +14,7 @@ pipeline {
                     url: "https://github.com/mtararujs/python-greetings.git",
                     branch: "main"
                 )
+                bat 'dir'
                 echo 'Repository cloned successfully.'
 
                 echo 'Installing Python dependencies from requirements.txt...'
