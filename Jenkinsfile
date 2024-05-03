@@ -2,11 +2,11 @@ pipeline {
     agent any
     
     stages {
-        stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
+        // stage('Clean Workspace') {
+        //     steps {
+        //         cleanWs()
+        //     }
+        // }
         stage('install-pip-deps') {
             steps {
                 echo 'Cloning the repository...'
