@@ -60,6 +60,10 @@ pipeline {
         stage('tests-on-staging') {
             steps {
                 echo 'Executing tests in the Staging environment...'
+                git(
+                    url: "https://github.com/mtararujs/course-js-api-framework.git",
+                    branch: "main"
+                )
                 bat "npm install"
                 bat "npm run greetings greetings_staging"
             }
@@ -79,6 +83,10 @@ pipeline {
         stage('tests-on-preprod') {
             steps {
                 echo 'Executing tests in the Pre-Production environment...'
+                git(
+                    url: "https://github.com/mtararujs/course-js-api-framework.git",
+                    branch: "main"
+                )
                 bat "npm install"
                 bat "npm run greetings greetings_preprod"
             }
@@ -98,6 +106,10 @@ pipeline {
         stage('tests-on-prod') {
             steps {
                 echo 'Executing tests in the Production environment...'
+                git(
+                    url: "https://github.com/mtararujs/course-js-api-framework.git",
+                    branch: "main"
+                )
                 bat "npm install"
                 bat "npm run greetings greetings_prod"
             }
