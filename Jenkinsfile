@@ -10,7 +10,10 @@ pipeline {
         stage('install-pip-deps') {
             steps {
                 echo 'Cloning the repository...'
-                bat 'git clone https://github.com/mtararujs/python-greetings.git'
+                git(
+                    url: "https://github.com/mtararujs/python-greetings.git",
+                    branch: "main"
+                )
                 echo 'Repository cloned successfully.'
 
                 echo 'Installing Python dependencies from requirements.txt...'
@@ -20,7 +23,10 @@ pipeline {
         stage('deploy-to-dev') {
             steps {
                 echo 'Deploying application to the Development environment...'
-                bat 'git clone https://github.com/mtararujs/python-greetings.git'
+                git(
+                    url: "https://github.com/mtararujs/python-greetings.git",
+                    branch: "main"
+                )
                 bat 'pm2 delete greetings-app-dev || EXIT /B 0'
                 bat 'pm2 start python-greetings/app.py --name greetings-app-dev -- --port 7001'
             }
