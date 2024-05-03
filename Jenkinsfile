@@ -12,9 +12,9 @@ pipeline {
                 echo 'Cloning the repository...'
                 git(
                     url: "https://github.com/mtararujs/python-greetings.git",
-                    branch: "main",
-                    commit: "4e911440a9886c7c26ccbb4eb55f0bc2a5067b51"
+                    branch: "main"
                 )
+                bat "git checkout 4e911440a9886c7c26ccbb4eb55f0bc2a5067b51"
                 bat 'dir'
                 echo 'Repository cloned successfully.'
 
@@ -29,6 +29,7 @@ pipeline {
                     url: "https://github.com/mtararujs/python-greetings.git",
                     branch: "main"
                 )
+                bat "git checkout 4e911440a9886c7c26ccbb4eb55f0bc2a5067b51"
                 bat 'pm2 delete greetings-app-dev || EXIT /B 0'
                 bat 'pm2 start app.py --name greetings-app-dev -- --port 7001'
             }
