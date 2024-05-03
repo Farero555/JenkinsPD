@@ -12,7 +12,8 @@ pipeline {
                 echo 'Cloning the repository...'
                 git(
                     url: "https://github.com/mtararujs/python-greetings.git",
-                    branch: "main"
+                    branch: "main",
+                    commit: "4e911440a9886c7c26ccbb4eb55f0bc2a5067b51"
                 )
                 bat 'dir'
                 echo 'Repository cloned successfully.'
