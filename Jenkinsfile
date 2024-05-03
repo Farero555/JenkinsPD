@@ -2,6 +2,12 @@ pipeline {
     agent any
     
     stages {
+         stages {
+        stage('Prepare Workspace') {
+            steps {
+                bat 'if exist python-greetings rmdir /s /q python-greetings'
+            }
+        }
         stage('install-pip-deps') {
             steps {
                 echo 'Cloning the repository...'
@@ -10,7 +16,6 @@ pipeline {
 
                 echo 'Installing Python dependencies from requirements.txt...'
                 bat 'pip3 install -r python-greetings/requirements.txt'
-                bat 'python-greetings rmdir /s /q python-greetings'
             }
         }
         stage('deploy-to-dev') {
