@@ -18,7 +18,7 @@ pipeline {
                 echo 'Repository cloned successfully.'
 
                 echo 'Installing Python dependencies from requirements.txt...'
-                bat 'pip3 install -r python-greetings/requirements.txt'
+                bat 'pip3 install -r requirements.txt'
             }
         }
         stage('deploy-to-dev') {
@@ -29,7 +29,7 @@ pipeline {
                     branch: "main"
                 )
                 bat 'pm2 delete greetings-app-dev || EXIT /B 0'
-                bat 'pm2 start python-greetings/app.py --name greetings-app-dev -- --port 7001'
+                bat 'pm2 start app.py --name greetings-app-dev -- --port 7001'
             }
         }
         stage('tests-on-dev') {
