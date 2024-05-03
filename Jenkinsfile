@@ -21,6 +21,9 @@ pipeline {
         stage('deploy-to-dev') {
             steps {
                 echo 'Deploying application to the Development environment...'
+                bat 'git clone https://github.com/mtararujs/python-greetings.git'
+                bat 'pm2 delete greetings-app-dev || EXIT /B 0'
+                bat 'pm2 start python-greetings/app.py --name greetings-app-dev -- --port 7001'
             }
         }
         stage('tests-on-dev') {
