@@ -65,7 +65,7 @@ pipeline {
                     branch: "main"
                 )
                 bat "npm install"
-                bat "npm run greetings greetings_staging"
+                bat "npm run greetings greetings_stg"
             }
         }
         stage('deploy-to-preprod') {
@@ -88,7 +88,7 @@ pipeline {
                     branch: "main"
                 )
                 bat "npm install"
-                bat "npm run greetings greetings_preprod"
+                //bat "npm run greetings greetings_preprod"
             }
         }
         stage('deploy-to-prod') {
