@@ -2,11 +2,6 @@ pipeline {
     agent any
     
     stages {
-        // stage('Clean Workspace') {
-        //     steps {
-        //         cleanWs()
-        //     }
-        // }
         stage('install-pip-deps') {
             steps {
                 echo 'Cloning the repository...'
@@ -41,7 +36,6 @@ pipeline {
                     url: "https://github.com/mtararujs/course-js-api-framework.git",
                     branch: "main"
                 )
-                bat "git checkout d204afc0e363f841c0d10cd05381a12ab16183ee"
                 bat "npm install"
                 bat "npm run greetings greetings_dev"
             }
@@ -65,9 +59,8 @@ pipeline {
                     url: "https://github.com/mtararujs/course-js-api-framework.git",
                     branch: "main"
                 )
-                bat "git checkout d204afc0e363f841c0d10cd05381a12ab16183ee"
                 bat "npm install"
-                bat "npm run greetings greetings_staging"
+                bat "npm run greetings greetings_stg"
             }
         }
         stage('deploy-to-preprod') {
@@ -89,9 +82,14 @@ pipeline {
                     url: "https://github.com/mtararujs/course-js-api-framework.git",
                     branch: "main"
                 )
-                bat "git checkout d204afc0e363f841c0d10cd05381a12ab16183ee"
                 bat "npm install"
-                bat "npm run greetings greetings_preprod"
+                script {
+                    if (fileExists('greetings_preprod')) {
+                        bat "npm run greetings greetings_preprod"
+                    } else {
+                        echo 'Skipping greetings_preprod because the directory does not exist.'
+                    }
+                }
             }
         }
         stage('deploy-to-prod') {
@@ -113,7 +111,6 @@ pipeline {
                     url: "https://github.com/mtararujs/course-js-api-framework.git",
                     branch: "main"
                 )
-                bat "git checkout d204afc0e363f841c0d10cd05381a12ab16183ee"
                 bat "npm install"
                 bat "npm run greetings greetings_prod"
             }
