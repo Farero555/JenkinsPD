@@ -41,7 +41,7 @@ pipeline {
                     url: "https://github.com/mtararujs/course-js-api-framework.git",
                     branch: "main"
                 )
-                bat "git checkout 7032ee862638108d4b9ad455e25e92a846c01ece"
+                bat "git checkout d204afc0e363f841c0d10cd05381a12ab16183ee"
                 bat "npm install"
                 bat "npm run greetings greetings_dev"
             }
@@ -65,7 +65,7 @@ pipeline {
                     url: "https://github.com/mtararujs/course-js-api-framework.git",
                     branch: "main"
                 )
-                bat "git checkout 7032ee862638108d4b9ad455e25e92a846c01ece"
+                bat "git checkout d204afc0e363f841c0d10cd05381a12ab16183ee"
                 bat "npm install"
                 bat "npm run greetings greetings_staging"
             }
@@ -89,7 +89,7 @@ pipeline {
                     url: "https://github.com/mtararujs/course-js-api-framework.git",
                     branch: "main"
                 )
-                bat "git checkout 7032ee862638108d4b9ad455e25e92a846c01ece"
+                bat "git checkout d204afc0e363f841c0d10cd05381a12ab16183ee"
                 bat "npm install"
                 bat "npm run greetings greetings_preprod"
             }
@@ -113,7 +113,7 @@ pipeline {
                     url: "https://github.com/mtararujs/course-js-api-framework.git",
                     branch: "main"
                 )
-                bat "git checkout 7032ee862638108d4b9ad455e25e92a846c01ece"
+                bat "git checkout d204afc0e363f841c0d10cd05381a12ab16183ee"
                 bat "npm install"
                 bat "npm run greetings greetings_prod"
             }
