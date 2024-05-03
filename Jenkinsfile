@@ -2,11 +2,11 @@ pipeline {
     agent any
     
     stages {
-        stage('Prepare Workspace') {
+        stage('Clean Workspace') {
             steps {
-                bat 'if exist python-greetings rmdir /s /q python-greetings'
+                cleanWs()
             }
-
+        }
         stage('install-pip-deps') {
             steps {
                 echo 'Cloning the repository...'
